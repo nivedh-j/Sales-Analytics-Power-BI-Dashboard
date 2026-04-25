@@ -1,8 +1,33 @@
-# 📊 Sales Analytics Power BI Dashboard
+# 📊 Sales Performance Dashboard — Power BI
 
 ![Dashboard Preview](screenshots/summary.png)
 
-A multi-page interactive Power BI report covering end-to-end sales performance — from high-level revenue summaries to granular product, customer, and team-level breakdowns. Built with dynamic date slicers, region/segment/team filters, and calculated DAX measures for profit margin, cumulative sales, sales growth %, and repeat customer rate.
+A multi-page interactive **Sales Performance Dashboard** built in Power BI to track key business metrics. Covers end-to-end sales analysis — from high-level revenue summaries to granular product, customer, region, and team-level breakdowns — with dynamic date slicers and cross-page filters.
+
+---
+
+## 🎯 Project Objective
+
+> Build a **Sales Performance Dashboard** in Power BI to help Sales Managers, Business Executives, and Marketing Teams monitor, analyse, and act on key business metrics in real time.
+
+### 👥 Target Users
+- Sales Managers
+- Business Executives
+- Marketing Teams
+
+### ✅ Dashboard Features Delivered
+- Sales Overview
+- Monthly & Yearly Sales Trends
+- Top Customers & Products
+- Profit & Revenue Analysis
+- Dynamic Filters (Date, Region, Category)
+
+### 📂 Data Sources
+| Source | Format |
+|--------|--------|
+| Sales Transactions | Excel / SQL / CSV |
+| Product Details | Excel / SQL / CSV |
+| Customer Information | Excel / SQL / CSV |
 
 ---
 
@@ -182,23 +207,26 @@ All dashboard pages support the following interactive filters:
 
 ---
 
-## 📐 DAX Measures Used
+## 📐 Key Metrics & DAX Calculations
 
-| Measure | Description |
-|---------|-------------|
-| `Total Sale` | Sum of all sales values |
-| `Total Profit` | Sum of profit column |
-| `Profit Margin %` | `DIVIDE([Total Profit], [Total Sale])` |
-| `Average Revenue` | `AVERAGE(Sales[Revenue])` |
-| `Cumulative Sales` | Running total using `CALCULATE` + `DATESYTD` |
-| `Cumulative Profit` | Running total of profit |
-| `Sales Growth %` | MoM growth using `DATEADD` |
-| `Repeated Customer` | Count of customers with more than 1 order |
-| `Repeated Customer %` | `DIVIDE([Repeated Customer], [Total Customers])` |
-| `Most Selling Product` | `TOPN` by quantity |
-| `Least Selling Product` | `BOTTOMN` by quantity |
+All measures are defined in Power BI using DAX. The table below mirrors the project's official metrics specification.
 
-> Full DAX formulas are documented in [`docs/dax-measures.md`](docs/dax-measures.md)
+| Metric Name | Formula / Calculation | Description |
+|-------------|----------------------|-------------|
+| `Total Sales` | `SUM(SalesAmount)` | Total revenue generated |
+| `Total Orders` | `COUNT(OrderID)` | Total number of sales orders |
+| `Total Quantity Sold` | `SUM(Quantity)` | Total units sold |
+| `Average Order Value` | `DIVIDE(SUM(SalesAmount), COUNT(OrderID))` | Average revenue per order |
+| `Profit` | `SUM(SalesAmount - CostPrice * Quantity)` | Net earnings after cost |
+| `Profit Margin %` | `DIVIDE(SUM(SalesAmount - CostPrice * Quantity), SUM(SalesAmount)) * 100` | Profitability percentage |
+| `Sales Growth %` | `((CurrentPeriodSales - PreviousPeriodSales) / PreviousPeriodSales) * 100` | Sales increase/decrease over time |
+| `Top 5 Products` | `TOPN(5, SUM(SalesAmount))` | Best-performing products |
+| `Top 5 Customers` | `TOPN(5, SUM(SalesAmount), CustomerName)` | Most valuable customers |
+| `Sales by Region` | `SUM(SalesAmount) GROUP BY Region` | Sales distribution across regions |
+| `Monthly Sales Trend` | `SUM(SalesAmount) BY Month` | Sales trends over time |
+| `Returning Customers %` | `DIVIDE(COUNT(DISTINCT(RepeatCustomerID)), COUNT(DISTINCT(CustomerID))) * 100` | Percentage of customers making repeat purchases |
+
+> Full DAX formulas with context filters are documented in [`docs/dax-measures.md`](docs/dax-measures.md)
 
 ---
 
