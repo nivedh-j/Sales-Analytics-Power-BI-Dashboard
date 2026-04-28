@@ -1,6 +1,6 @@
 # 📊 Sales Performance Dashboard — Power BI
 
-![Dashboard Preview]("<img width="1373" height="769" alt="Sales-Trends" src="https://github.com/user-attachments/assets/19018698-9661-4cfb-98a7-6f44ae5d955f" />
+![Dashboard Preview]("<img width="1377" height="772" alt="Summary" src="https://github.com/user-attachments/assets/3a0b4086-039d-4641-a6c1-28c686186ef7" />
 ")
 
 A multi-page interactive **Sales Performance Dashboard** built in Power BI to track key business metrics. Covers end-to-end sales analysis — from high-level revenue summaries to granular product, customer, region, and team-level breakdowns — with dynamic date slicers and cross-page filters.
