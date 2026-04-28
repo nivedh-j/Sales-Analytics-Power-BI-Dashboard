@@ -1,6 +1,6 @@
 # 📊 Sales Performance Dashboard — Power BI
 
-![Dashboard Preview](screenshots/summary.png)
+![Dashboard Preview]("D:/Data Science/Power BI/screen shots/Summary.png")
 
 A multi-page interactive **Sales Performance Dashboard** built in Power BI to track key business metrics. Covers end-to-end sales analysis — from high-level revenue summaries to granular product, customer, region, and team-level breakdowns — with dynamic date slicers and cross-page filters.
 
